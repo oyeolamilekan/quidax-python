@@ -59,8 +59,12 @@ class QuidaxRequests(object):
             json=data, headers=self.headers,
             params=qs
         )
-        print(response)
-        return response.json()
+        try:
+            if "InvalidSecretKeyError" in response.text:
+                return {"status": "error", "message": "Invalid secret key"}
+            return response.json()
+        except:
+            return {"status": "error", "message": response.text}
 
     def get(self, endpoint, **kwargs):
         """Get a resource.
