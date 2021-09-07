@@ -7,7 +7,7 @@ def readme():
 
 setup(
     name="quidax-python",
-    version="1.0",
+    version="1.2",
     description='A python library to consume Quidax API',
     keywords='quidax python library',
     license="MIT",
